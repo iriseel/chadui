@@ -1,9 +1,18 @@
 var questions = document.querySelectorAll(".question");
 //var clicks = -1;
 var audio = document.querySelector("audio");
+audio.crossOrigin = "anonymous";
 
     
 window.addEventListener('click', function(){
+    
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext)(),
+        audio_source = audioCtx.createMediaElementSource(audio),
+        panNode = audioCtx.createStereoPanner();
+
+    panNode.pan.value = -1;
+
+    audio_source.connect(panNode).connect(audioCtx.destination);
 
     questions[0].classList.add('show');
 

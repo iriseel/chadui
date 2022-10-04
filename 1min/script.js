@@ -13,7 +13,7 @@ window.addEventListener('click', function(){
         audio_source = audioCtx.createMediaElementSource(audio),
         panNode = audioCtx.createStereoPanner();
 
-    panNode.pan.value = -1;
+    panNode.pan.value = 1;
 
     audio_source.connect(panNode).connect(audioCtx.destination);
 
