@@ -1,12 +1,21 @@
 var narrations = document.querySelectorAll(".narration");
 //var clicks = -1;
 var audio = document.querySelector("audio");
+audio.crossOrigin = "anonymous";
 var video = document.querySelector("video");
 
 
 document.querySelector('video').playbackRate = 0.6;
     
 window.addEventListener('click', function(){
+    
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext)(),
+        audio_source = audioCtx.createMediaElementSource(audio),
+        panNode = audioCtx.createStereoPanner();
+
+    panNode.pan.value = -1;
+
+    audio_source.connect(panNode).connect(audioCtx.destination);
 
     narrations[0].classList.add('show');
 
