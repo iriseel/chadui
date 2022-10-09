@@ -19,14 +19,14 @@ window.addEventListener('click', function(){
         audio_source = audioCtx.createMediaElementSource(audio),
         panNode = audioCtx.createStereoPanner();
 
-    panNode.pan.value = 1;
+    panNode.pan.value = -1;
 
     audio_source.connect(panNode).connect(audioCtx.destination);
 
     audio.play();
 
     change_question();
-    console.log(questions.length);
+//    console.log(questions.length);
 });
 
 
@@ -38,9 +38,7 @@ function change_question(){
     }
     
     if (order >= questions.length) {
-        //??This doesn't seem to be called??
         console.log("story ended");
-        video.pause();
     }
     else {
         questions[order].classList.add('show');

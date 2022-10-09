@@ -29,7 +29,7 @@ window.addEventListener('click', function(){
     video.play();
 
     change_narration();
-    console.log(narrations.length);
+//    console.log(narrations.length);
 });
 
 
@@ -41,7 +41,6 @@ function change_narration(){
     }
     
     if (order >= narrations.length) {
-        //??This doesn't seem to be called??
         console.log("story ended");
         video.pause();
     }
