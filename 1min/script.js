@@ -1,14 +1,22 @@
 var narrations = document.querySelectorAll(".narration");
 //var clicks = -1;
+var order = 0;
 var audio = document.querySelector("audio");
 audio.crossOrigin = "anonymous";
 var video = document.querySelector("video");
-
+var delays = [
+    5871,
+    3747,
+    4460,
+    3990,
+    4833,
+    11951,
+    11000
+]
 
 document.querySelector('video').playbackRate = 0.6;
     
 window.addEventListener('click', function(){
-    
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)(),
         audio_source = audioCtx.createMediaElementSource(audio),
         panNode = audioCtx.createStereoPanner();
@@ -17,83 +25,36 @@ window.addEventListener('click', function(){
 
     audio_source.connect(panNode).connect(audioCtx.destination);
 
-    narrations[0].classList.add('show');
-
     audio.play();
     video.play();
-    
-    var myTimeout = setTimeout(narration_1, 5871);
+
+    change_narration();
+    console.log(narrations.length);
 });
 
 
-function clear(){
+function change_narration(){
+
     for(var i = 0; i < narrations.length; i++){
         narrations[i].classList.add('hidden');
         narrations[i].classList.remove('show');
     }
-};
+    
+    if (order >= narrations.length) {
+        //??This doesn't seem to be called??
+        console.log("story ended");
+        video.pause();
+    }
+    else {
+        narrations[order].classList.add('show');
 
+        var delay = delays[order];
 
-function narration_1() { 
-    clear();
-    narrations[1].classList.add('show');
-    var myTimeout = setTimeout(narration_2, 3747);
-
-};
-
-function narration_2() { 
-    clear();
-    narrations[2].classList.add('show');
-    var myTimeout = setTimeout(narration_3, 4460);
-
-};
-
-function narration_3() { 
-    clear();
-    narrations[3].classList.add('show');
-    var myTimeout = setTimeout(narration_4, 3990);
-
-};
-
-function narration_4() { 
-    clear();
-    narrations[4].classList.add('show');
-    var myTimeout = setTimeout(narration_5, 4833);
-
-};
-
-function narration_5() { 
-    clear();
-    narrations[5].classList.add('show');
-    var myTimeout = setTimeout(narration_6, 11951);
-
-};
-
-function narration_6() { 
-    clear();
-    narrations[6].classList.add('show');
-    var myTimeout = setTimeout(narration_end, 11000);
-
-};
-
-function narration_end() { 
-    clear();
-    video.pause();
-
-};
-
-
-
-//window.addEventListener('click', function(){
-//    clicks++;
-//
-//    for(var i = 0; i < narrations.length; i++){
-//        narrations[i].classList.add('hidden');
-//        narrations[i].classList.remove('show');
-//    }
-//
-//    narrations[clicks].classList.add('show');
-//
-//    audio.play();
-//
-//});
+        var myTimeout = setTimeout(change_narration, delay);
+        
+        order++;
+        
+    }
+    
+//    console.log(order);
+}
