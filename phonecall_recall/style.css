@@ -1,5 +1,4 @@
 body {
-    
     font-family:serif;
     font-size:24px;
     line-height: 1.2em;
@@ -19,7 +18,7 @@ img {
 
 .images {
     opacity:0.5;
-/*    opacity:0;*/
+    opacity:0;
     
     position:absolute;
     z-index:-1;
@@ -53,4 +52,6 @@ div[class^='unit'], div[class*=' unit'] {
 
 div[class^='unit'] .character {
     font-size:5vw;
+    color:greenyellow;
+    text-shadow: .5px .5px darkgreen;
 }
