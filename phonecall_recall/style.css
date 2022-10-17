@@ -38,7 +38,7 @@ img {
 
 div[class^='unit'], div[class*=' unit'] {
     width:5%;
-    height:2%;
+    height:3%;
     overflow:hidden;
     display:flex;
     flex-flow: row wrap;
