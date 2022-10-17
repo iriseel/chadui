@@ -1,0 +1,54 @@
+body {
+    
+    font-family:serif;
+    font-size:24px;
+    line-height: 1.2em;
+    margin: 0;
+    padding: 0;
+    hyphens: auto;
+    
+}
+
+* {
+    box-sizing:border-box;
+}
+
+img {
+    height:130vh;
+}
+
+.images {
+    opacity:0.5;
+    
+    position:absolute;
+    z-index:-1;
+    left:0;
+    top:0;
+    
+}
+
+.container {
+    display:flex;
+    flex-flow: row wrap;
+    width:100vw;
+    height:100vh;
+    
+/*    background:blue;*/
+}
+
+div[class^='unit'], div[class*=' unit'] {
+    width:5%;
+    height:2%;
+    overflow:hidden;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    
+    border: 1px solid green;
+/*    background:pink;*/
+}
+
+div[class^='unit'] .character {
+    font-size:5vw;
+}
