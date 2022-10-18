@@ -52,6 +52,17 @@ div[class^='unit'], div[class*=' unit'] {
 
 div[class^='unit'] .character {
     font-size:5vw;
-    color:greenyellow;
-    text-shadow: .5px .5px darkgreen;
+    color:#44ED00;
+    opacity:.2;
+    transition: opacity .5s;
+/*    text-shadow: .5px .5px darkgreen;*/
+}
+
+div[class^='unit'] .character:hover {
+    opacity:1;
+    cursor:grab;
+}
+
+.audios {
+    display:none;
 }
