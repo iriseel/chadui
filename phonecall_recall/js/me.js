@@ -14,8 +14,12 @@ function init() {
     
     drawings.forEach((drawing, i) => {
         
-        drawing.addEventListener('mouseover', function(){
+        drawing.addEventListener('touchmove', playAudio(e));
+        drawing.addEventListener('mouseover', playAudio(e));
+        
+        function playAudio(e){
             
+            e.preventdefault();
             audio.play();
             
             const restoreAudio = setInterval(() => {
@@ -28,9 +32,12 @@ function init() {
                 audio.volume += 0.1;
                 }
             }, 50);
-        });
+        };
          
-        drawing.addEventListener('mouseout', function() {
+        drawing.addEventListener('touchend', pauseAudio);
+        drawing.addEventListener('mouseout', pauseAudio);
+        
+        function pauseAudio() {
             
             audio.pause();
             
@@ -43,7 +50,7 @@ function init() {
                     audio.volume -= 0.1;
                 }
             }, 50);
-        });
+        };
 
     });
     
