@@ -46,7 +46,7 @@ div[class^='unit'], div[class*=' unit'] {
     
 }
 
-.character:hover {
+.character:hover, .character:active {
     opacity:1;
     cursor:grab;
 }
@@ -68,6 +68,6 @@ div[class^='unit'], div[class*=' unit'] {
     pointer-events: none;
 }
 
-.drawing:hover::before {
+.drawing:hover::before, .drawing:active::before {
     opacity:.3;
 }
