@@ -20,6 +20,8 @@ function init() {
         
         function playAudio(){
             
+            alert("audio playing!");
+            
 //            e.preventdefault();
             audio.play();
             
