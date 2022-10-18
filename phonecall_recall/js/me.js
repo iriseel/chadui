@@ -14,12 +14,13 @@ function init() {
     
     drawings.forEach((drawing, i) => {
         
-        drawing.addEventListener('touchmove', playAudio(e));
-        drawing.addEventListener('mouseover', playAudio(e));
+        drawing.addEventListener('touchmove', playAudio);
+        drawing.addEventListener('mouseover', playAudio);
+        drawing.addEventListener('click', playAudio);
         
-        function playAudio(e){
+        function playAudio(){
             
-            e.preventdefault();
+//            e.preventdefault();
             audio.play();
             
             const restoreAudio = setInterval(() => {
