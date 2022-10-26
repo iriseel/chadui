@@ -25,7 +25,7 @@ const get_time = setInterval(() => {
         drawings.forEach((drawing, i) => {
 //            var shadow = currentTime * 6;
             
-            console.log(shadow);
+//            console.log(shadow);
 
             //https://insidethediv.com/select-css-pseudo-element-using-javascript
             drawing.style.setProperty('--drawingAfterTransform', 'skew(' + shadow + 'deg) scale(1,2) rotateX(180deg)');

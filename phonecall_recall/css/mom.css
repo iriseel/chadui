@@ -1,0 +1,32 @@
+.images {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width:100vw;
+    height:100vh;
+    
+}
+
+img {
+    max-width: 40%;
+    position:relative;
+}
+
+/*TEXT SHADOW*/
+.images::before {
+    color: rgba(0,0,0,1);
+    font-size:40vw;
+    content: "图";
+    position: absolute;
+    left: 41%;
+    bottom:33.5%;
+    z-index: -1;
+    
+    transform-origin: bottom left;
+/*    transform: skew(50deg) scale(1,2) rotateX(180deg);*/
+    transform: var(--imageAfterTransform, skew(50deg) scale(1.25,1) rotateX(180deg));
+    opacity:.7;
+    
+    pointer-events: none;
+}

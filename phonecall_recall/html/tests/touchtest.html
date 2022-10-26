@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>DOM touchmove Event</h1>
+    
+<p id="demo">hello</p>
+
+<div id="test">
+    hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi hi 
+</div>
+<div class="test">
+    青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青青
+</div>
+    
+<p ontouchmove="myFunction(event)">Touch this paragraph, and move the finger to trigger a function that will display the x and y coordinates of the touch, according the the document:</p>
+
+<p id="demo2"></p>
+
+<script>
+    
+var test = document.querySelector("#test");
+
+test.addEventListener('touchmove', playAudio);
+        
+function playAudio(){
+
+  document.getElementById("demo").innerHTML = "done done done";
+
+//    alert("audio playing!");
+
+};
+
+function myFunction(event) {
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+  document.getElementById("demo2").innerHTML = x + ", " + y;
+}
+</script>
+
+</body>
+</html>

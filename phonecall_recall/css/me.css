@@ -1,0 +1,99 @@
+:root {
+    --font-size: 5vw;
+    --color: #44ED00;
+}
+
+img {
+    height:130vh;
+}
+
+.images {
+    opacity:0.5;
+    opacity:0;
+    
+    position:absolute;
+    z-index:-1;
+    left:0;
+    top:0;
+
+    display:none;
+    
+}
+
+.instructions, .character {
+    transition: opacity .5s;
+}
+
+.instructions {
+    position: absolute;
+    top:2em; 
+    left:0;
+    right:0;
+    width:calc(100% - 4em);
+    margin: 0 auto;
+    
+    font-size:var(--font-size, 5vw);
+    line-height: 6vw;
+    font-weight: 100;
+    
+    color: var(--color, #44ED00);
+}
+
+.container {
+    display:flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    width:100vw;
+    height:100vh;
+    
+/*    background:blue;*/
+}
+
+div[class^='unit'], div[class*=' unit'] {
+    width:5%;
+    height:3%;
+    overflow:visible;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    
+/*    border: 1px solid green;*/
+/*    background:pink;*/
+}
+
+.character {
+/*    font-family: 'Zhi Mang Xing', sans-serif;*/
+    font-size:var(--font-size, 5vw);
+    color:var(--color, #44ED00);
+    opacity:.4;
+    position:relative;
+/*    text-shadow: 15px 15px 1px darkgreen;*/
+    
+}
+
+.character:hover, .character:active, .character:focus {
+    opacity:1;
+    cursor:grab;
+}
+
+/*TEXT SHADOW*/
+.drawing::before {
+    color: rgba(0,0,0,1);
+    content: "青";
+    position: absolute;
+    left: var(--drawingAfterLeft, -65%);
+    bottom:60%;
+    z-index: -1;
+    
+    transform-origin: bottom center;
+/*    transform: skew(50deg) scale(1,2) rotateX(180deg);*/
+    transform: var(--drawingAfterTransform, skew(50deg) scale(1,2) rotateX(180deg));
+    opacity:.1;
+    
+/*    pointer-events: none;*/
+}
+
+.drawing:hover::before, .drawing:active::before {
+    opacity:.3;
+}
